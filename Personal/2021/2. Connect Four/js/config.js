@@ -1,4 +1,4 @@
-const boardSizeY = 7;
+const boardSizeY = 5;
 const boardSizeX = 7;
 const whiteSpace = 5;
 
@@ -17,9 +17,9 @@ const players = [
     "g":97,
     "b":255,
   },
-  {
-    "r":97,
-    "g":255,
-    "b":97,
-  }
+  // {
+  //   "r":97,
+  //   "g":255,
+  //   "b":97,
+  // }
 ]

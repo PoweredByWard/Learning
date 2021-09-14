@@ -1,14 +1,28 @@
 import { useEffect, useState } from "react";
+import { BlueButton, GrayButton, RedButton } from "../utils/buttons";
 
 const TextBoxSpace = (props) => {
   return (
-    <div class="flex flex-row items-center h-16 rounded-xl bg-white w-full px-4">
-      <div class="mr-4">
-        <button class="flex items-center justify-center bg-red-500 hover:bg-red-600 rounded-xl text-white px-4 py-1 flex-shrink-0">
-          <span>STOP</span>
-        </button>
+    <div class="flex flex-row items-center h-16 rounded-xl  bg-white w-full px-4">
+      <div class="mr-4 text-center w-36">
+        {props.connected && (
+          
+          <RedButton onClick={props.stop}>
+            <span className="uppercase">stop</span>
+          </RedButton>
+        )}
+        {props.searching && (
+          <GrayButton>
+            <span className="uppercase">searching</span>
+          </GrayButton>
+        )}
+        {!props.connected && !props.searching && (
+          <BlueButton onClick={props.search}>
+            <span className="uppercase">new</span>
+          </BlueButton>
+        )}
       </div>
-      <div>
+      {/* <div>
         <button class="flex items-center justify-center text-gray-400 hover:text-gray-600">
           <svg
             class="w-5 h-5"
@@ -25,11 +39,12 @@ const TextBoxSpace = (props) => {
             ></path>
           </svg>
         </button>
-      </div>
-      <div class="flex-grow ml-4">
+      </div> */}
+      <div class="flex-grow">
         <div class="relative w-full">
           {props.children}
-          <button class="absolute flex items-center justify-center h-full w-12 right-0 top-0 text-gray-400 hover:text-gray-600">
+          
+          {/* <button class="absolute flex items-center justify-center h-full w-12 right-0 top-0 text-gray-400 hover:text-gray-600">
             <svg
               class="w-6 h-6"
               fill="none"
@@ -44,7 +59,7 @@ const TextBoxSpace = (props) => {
                 d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
               ></path>
             </svg>
-          </button>
+          </button> */}
         </div>
       </div>
       <div class="ml-4">
